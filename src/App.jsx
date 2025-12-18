@@ -4,6 +4,7 @@ import Main from './page/Main'
 import Calc from './page/Calc'
 import Dark from './page/Dark'
 import StudentInfo from './page/StudentInfo'
+import 자식건네주기 from './page/자식건네주기'
 
 function App() {
 
@@ -18,7 +19,9 @@ function App() {
           
           <Route path='/dark' element={<Dark />} />
 
-          <Route path='/studentinfo' element={<StudentInfo/>} />
+          <Route path='/studentinfo' element={<StudentInfo />} />
+
+          <Route path='/child' element={<자식건네주기 />} />
 
         </Routes>
       </BrowserRouter>
