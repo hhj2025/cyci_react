@@ -15,11 +15,27 @@ function 자식건네주기() {
         e.preventDefault();
         setCount(count+1);
       }}/>
+      <자식3 fnStudy={(val) => {
+        alert('자식에게서 호출');
+        alert(val)
+      }}/>
     </>
   )
 }
 
 export default 자식건네주기
+
+
+function 자식3(props) {
+  return(
+    <div style={{width : '100vw', height : '200px', border : '2px solid blue'}}>
+      <h3>자식 Component 영역</h3>
+      <input type="button" value='부모 호출' onClick={e => {
+        props.fnStudy('1234');
+      }}/>
+    </div>
+  )
+}
 
 function 자식2(props) {
   return(

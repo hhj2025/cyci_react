@@ -4,15 +4,18 @@ import puppy from '../assets/img/puppy.png'
 
 function 게시판() {
 
+
   let obj1 = {title : '귀여운 사자',
               content : '작고 귀여운 갈색 사자',
-              img : lion};
+              img : lion,
+              cnt : 0};
 
   let obj2 = {title : '귀여운 강아지',
               content : '작고 귀여운 갈색 강아지',
-              img : puppy};
+              img : puppy,
+              cnt : 0};
 
-  const lists = [obj1, obj2];
+  const [lists, setLists] = useState([obj1, obj2]);
 
   return (
     <>
@@ -21,8 +24,11 @@ function 게시판() {
       <Component1 data={obj2}/>
       <hr/>
       {lists.map((item, index) => (
-        <Component1 key={index} data={item}/>
-      ))};
+        <Component1 key={index} data={item} fnGood={(index) => {
+          console.log(lists[index])
+          lists[index].cnt = lists[index].cnt+1;
+        }} dataIndex={index}/>
+      ))}
     </>
   )
 }
@@ -36,6 +42,11 @@ function Component1(props) {
       <div>
         <h1>{props.data.title}</h1>
         <span>{props.data.content}</span>
+        <input type="button" value='부모 호출' onClick={ e => {
+          e.preventDefault();
+          props.fnGood(props.dataIndex);
+        }}/>
+        {props.data.cnt}
       </div>
     </div>
   )
