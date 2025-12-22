@@ -41,13 +41,27 @@ function 입력(props){
                 <input type="button" value='추가' onClick={ e => {
                     e.preventDefault();
 
+                
+
                     const name1 = document.getElementById('name').value;
                     const korean1 = document.getElementById('korean').value;
                     const english1 = document.getElementById('english').value;
                     const math1 = document.getElementById('math').value;
 
+                    if(name1 === '' || korean1 === '' || english1 === '' || math1 === '') {
+                        alert('모든 필드를 입력해주세요.');
+                        return;
+                    }
 
-                    props.input(name1, korean1, english1, math1);
+                    else{
+                        props.input(name1, korean1, english1, math1);
+
+                        document.getElementById('name').value = '';
+                        document.getElementById('korean').value = '';
+                        document.getElementById('english').value = '';
+                        document.getElementById('math').value = '';
+                    }
+
                 }}/>
             </div>
         </div>
