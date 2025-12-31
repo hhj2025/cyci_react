@@ -10,6 +10,8 @@ import 학생성적 from './page/학생성적'
 import Axios보내기 from './page/axios/axios보내기'
 import 로그인 from './page/axios/Login'
 import 회원가입 from './page/axios/Register'
+import 게시판2 from './page/axios2/게시판2'
+import 리듀서 from './page/리듀서'
 
 function App() {
 
@@ -38,6 +40,9 @@ function App() {
           
           <Route path='/register' element={<회원가입 />} />
 
+          <Route path='/board2' element={<게시판2 />} />
+
+          <Route path='/reducer' element={<리듀서 />} />
         </Routes>
       </BrowserRouter>
     </>
